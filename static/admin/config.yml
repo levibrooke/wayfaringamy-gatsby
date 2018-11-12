@@ -1,0 +1,26 @@
+backend:
+  name: wayfaring-cms
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: travel
+    label: Travel
+    folder: travel
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: thoughts
+    label: Thoughts
+    folder: thoughts
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
