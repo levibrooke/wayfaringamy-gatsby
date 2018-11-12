@@ -1,5 +1,6 @@
 backend:
-  name: wayfaring-cms
+  name: git-gateway
+  
 
 media_folder: static/assets
 public_folder: assets
