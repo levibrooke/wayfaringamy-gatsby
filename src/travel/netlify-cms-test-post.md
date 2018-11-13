@@ -1,5 +1,5 @@
 ---
-path: /testing-cms
+path: /travel/testing-cms
 date: 2018-11-13T07:50:58.319Z
 title: Netlify CMS test post
 ---
