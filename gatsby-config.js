@@ -40,7 +40,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify-cms',
-    'gatsby-transformer-remark'
+    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        precision: 8,
+      },
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
