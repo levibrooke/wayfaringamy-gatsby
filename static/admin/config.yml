@@ -15,6 +15,7 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+      - { name: Featured Post, label: Would you like to feature this post?, widget: boolean, default: false }
 
   - name: thoughts
     label: Thoughts
@@ -25,3 +26,4 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+      - { name: Featured Post, label: Would you like to feature this post?, widget: boolean, default: false }
