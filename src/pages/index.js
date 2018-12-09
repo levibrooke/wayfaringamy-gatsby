@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import amy from '../images/amy.jpg'
 
-export default function IndexPage({ data }) {
+const IndexPage = ({ data }) => {
   const reset = <div className="reset" />;
   const { edges: posts } = data.allMarkdownRemark;
   return (
@@ -42,120 +42,52 @@ export default function IndexPage({ data }) {
         </section>
         <section className="row" id="posts-row">
           {/* query for posts here */}
-          <StaticQuery
-            query={graphql`
-              query HomePageQuery {
-                allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-                  edges {
-                    node {
-                      excerpt(pruneLength: 250)
-                      id
-                      frontmatter {
-                        title
-                        date(formatString: "MMMM DD, YYYY")
-                        path
-                      }
-                    }
-                  }
-                }
-              }
-            `}
-            render={posts
-              .filter(post => post.node.frontmatter.title.length > 0)
-              .map(({ node: post }) => {
-                return (
-                  <div class="col-md-4" key={post.id}>
-                    <article id="" class="">
-                      <figure class="entry-image">
-                        <a href="#">
-                          <img src={amy} class="img-responsive size-posts-thumb" width="350px" height="200px" />
-                        </a>
-                      </figure>
-                      <header class="entry-header">
-                        <h2 class="entry-title">
-                          <Link to={post.frontmatter.path}
-                            rel="bookmark"
-                          >
-                            {post.frontmatter.title}
-                          </Link>
-                        </h2>
-                      </header>
-
-                      <div class="entry-content">
-                        <p>Excerpt goes here</p>
-                      </div>
-
-                      <footer class="entry-footer">
-                        <div class="entry-meta">
-                          <p>
-                            <span>
-                              <a href="/collection-link-here">Collection</a>
-                            </span>
-                            /
-                    <time datetime="{{ document.date }}">
-                              <Link
-                                to="{post.frontmatter.path}"
-                              >
-                                {post.frontmatter.date}
-                              </Link>
-                            </time>
-                          </p>
-                        </div>
-                      </footer>
-                    </article>
-                  </div>
-                )
-              })
-            }
-          />
-          {/* {
-    posts
-      .filter(post => post.node.frontmatter.title.length > 0)
-      .map(({ node: post }) => {
-        return (
-          <div class="col-md-4" key={post.id}>
-            <article id="" class="">
-              <figure class="entry-image">
-                <a href="#">
-                  <img src={amy} class="img-responsive size-posts-thumb" width="350px" height="200px" />
-                </a>
-              </figure>
-              <header class="entry-header">
-                <h2 class="entry-title">
-                  <Link to={post.frontmatter.path} 
-                  rel="bookmark"
-                  >
-                    {post.frontmatter.title}
-                  </Link>
-                </h2>
-              </header>
-
-              <div class="entry-content">
-                <p>Excerpt goes here</p>
-              </div>
-
-              <footer class="entry-footer">
-                <div class="entry-meta">
-                  <p>
-                    <span>
-                      <a href="/collection-link-here">Collection</a>
-                    </span>
-                     / 
-                    <time datetime="{{ document.date }}">
+          {posts.map(({ node: post }) => {
+            const { frontmatter } = post;
+            return (
+              <div className="col-md-4" key={post.id}>
+                <article id="" className="">
+                  <figure className="entry-image">
+                    <Link to={frontmatter.path}>
+                      <img src={amy} className="img-responsive size-posts-thumb" width="350px" height="200px" />
+                    </Link>
+                  </figure>
+                  <header className="entry-header">
+                    <h2 className="entry-title">
                       <Link
-                        to="{post.frontmatter.path}"
+                        to={frontmatter.path}
+                        rel="bookmark"
                       >
-                        {post.frontmatter.date}
+                        {frontmatter.title}
                       </Link>
-                    </time>
-                  </p>
-                </div>
-              </footer>
-            </article>
-          </div>
-        )
-      })
-  } */}
+                    </h2>
+                  </header>
+
+                  <div className="entry-content">
+                    <p>Excerpt goes here</p>
+                  </div>
+
+                  <footer className="entry-footer">
+                    <div className="entry-meta">
+                      <p>
+                        <span>
+                          <a href="/collection-link-here">Collection</a>
+                        </span>
+                        /
+                    <time dateTime="{frontmatter.date}">
+                          <Link
+                            to={frontmatter.path}
+                          >
+                            {post.frontmatter.date}
+                          </Link>
+                        </time>
+                      </p>
+                    </div>
+                  </footer>
+                </article>
+              </div>
+            )
+          })}
 
           {reset}
 
@@ -166,14 +98,14 @@ export default function IndexPage({ data }) {
               title="Travel"
             >
               Read more in Travel
-        </Link>
+            </Link>
             <Link
               className="btn"
               to="/thoughts"
               title="Thoughts"
             >
               Read more in Thoughts
-        </Link>
+            </Link>
           </div>
         </section>
       </main>
@@ -186,3 +118,23 @@ export default function IndexPage({ data }) {
     </Layout >
   )
 }
+
+export const query = graphql`
+  query IndexQuery {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            path
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default IndexPage;
