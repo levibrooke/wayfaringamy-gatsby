@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Header from '../components/header'
+import FeaturedPost from '../components/featuredPost'
 import amy from '../images/amy.jpg'
 
 const IndexPage = ({ data }) => {
@@ -14,7 +15,7 @@ const IndexPage = ({ data }) => {
       <div className="border-top" />
       <header className="featured-header">
         <Header />
-        {/* {% include featured-post.html %} */}
+        {/* <FeaturedPost /> */}
       </header>
 
       <main className="container" id="" role="main">
@@ -43,6 +44,7 @@ const IndexPage = ({ data }) => {
         <section className="row" id="posts-row">
           {/* query for posts here */}
           {posts.map(({ node: post }) => {
+            console.log('post', post);
             const { frontmatter } = post;
             return (
               <div className="col-md-4" key={post.id}>

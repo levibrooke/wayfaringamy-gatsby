@@ -1,0 +1,258 @@
+// imports
+@import "bootstrap";
+
+///// colors
+// primary green #00A092
+// secondary green #066B62
+// tertiary green #54554B
+// light grey #CDCDCD
+// medium grey #636466
+// dark grey #272727
+////
+
+//// start custom styles
+
+/* Typography ------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: "ff-tisa-web-pro";
+    font-weight: 700;
+    color: #272727;
+}
+ul, li, p, a {
+    font-family: "open-sans";
+    font-weight: 400;
+}
+p {
+    color: #5a5a5a;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+/* Navbar style ----------*/
+nav a {
+    font-family: "letter-gothic-std";
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.navbar-default {
+    border: none; 
+    padding: 50px 0;
+    background-color: transparent;
+}
+.navbar-default {
+    > .container { background-color: rgba(255,255,255,0.85); }
+    .navbar-nav > li > a { color: #499384; transition: all .3s ease-in-out;}
+    .navbar-nav > li > a:hover { background-color: #499384; color: #fff;}
+}
+.navbar-brand {
+    height: 100px;
+    padding: 10px 15px;
+}
+.navbar-brand {
+    > #logo {max-width: 100%; max-height: 80px;}
+}
+
+#menu-header {
+    padding: 25px;
+}
+
+/* Page border ------------*/
+@media all and (min-width: 48em) {
+    .border-top {
+        position: relative;
+    }
+    .border-top:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 25px;
+        bottom: 0;
+        left: 25px;
+        right: 25px;
+        border-top: 2px solid rgba(0, 160, 146, 0.8);
+        z-index: 9999;
+        height: 2px;
+    }
+    .page-border {
+        position: relative;
+    }       
+    .page-border:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 25px;
+        bottom: 25px;
+        left: 25px;
+        border-left: 2px solid rgba(0, 160, 146, 0.8);
+        z-index: 9999;
+        width: 2px;
+    }
+    .page-border:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 25px;
+        bottom: 25px;
+        right: 25px;
+        border-right: 2px solid rgba(0, 160, 146, 0.8);
+        z-index: 9999;
+        width: 2px;
+    }
+    .border-bottom {
+        position: relative;
+        top: -25px;
+    }
+    .border-bottom:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 25px;
+        right: 25px;
+        border-bottom: 2px solid rgba(0, 160, 146, 0.8);
+        z-index: 9999;
+        height: 2px;
+    }
+}
+
+/* Global styles ---------*/
+//.col-xs-20, .col-sm-20, .col-md-20, .col-lg-20 {
+//    position: relative;
+//    min-height: 1px;
+//    padding-right: 10px;
+//    padding-left: 10px;
+//}
+
+/* Front page --------*/
+.featured-header {
+    background: #272727;
+    position: relative;
+    overflow: hidden;
+}
+.featured-header:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.featured-post {
+    article { margin: 50px 0;}
+    header a, header span, header h2 { background: #499384; color: #fff; font-family: "ff-tisa-web-pro"; font-weight: 700; transition: opacity .3s ease-in-out; line-height: 2em; box-shadow: 10px 0 0 #499384, -10px 0 0 #499384; display: inline-block; }
+    header a:hover, header a:active, header a:visited {text-decoration: none; opacity: 0.8;}
+    footer p, a { font-family: "letter-gothic-std"; font-weight: 700; letter-spacing: 1px; color: #fff; transition: opacity .3s ease-in-out; }
+    footer a:hover, footer a:active {text-decoration: none; opacity: 0.8;}
+    footer .cat-links a { font-family: "letter-gothic-std"; font-weight: 700; letter-spacing: 1px; color: #499384;}
+    footer .posted-on a { font-family: "letter-gothic-std"; font-weight: 700; letter-spacing: 1px; color: #fff; }
+    aside {margin-top: 100px; margin-bottom: 100px;}
+    aside p {color: #cdcdcd; margin-bottom: 30px; font-size: 16px;}
+    .signup-form input {display: inline-block; background: transparent; border: none; font-family: "open-sans"; color: #cdcdcd; border-bottom: 1px solid #cdcdcd; outline: none; font-size: 16px; width: 50%; margin-right: 20px; padding: 5px 0;}
+    .signup-form input::-webkit-input-placeholder, .signup-form input::-moz-placeholder, .signup-form input:-ms-input-placeholder {color: #cdcdcd; }
+    .signup-form button {display: inline-block; background: transparent; border: 1px solid #499384; color: #499384; font-family: "letter-gothic-std"; padding: 5px 20px; font-size: 16px; transition: all .3s ease-in-out;}
+    .signup-form button:hover {background: #499384; color: #fff;}
+}
+
+#about-amy {
+    margin: 100px 0;
+}
+#about-amy {
+    .frame-area {position: relative; }
+    .frame-border {position: absolute; left: 50px; top: 20px; right: 50px; bottom: 20px; border: 2px solid rgb(205,205,205); opacity: .8; -webkit-transition: border-color .3s ease-in-out; transition: border-color .3s ease-in-out; }
+    .frame-area:hover .frame-border {border: 2px solid #499384; opacity: .8; }
+    aside {padding: 25px 50px 0 0; text-align: center; }
+    h2 {text-align: center; margin: 25px 0; }
+    .about-text {text-align: left; font-size: 16px; line-height: 1.5em; margin-bottom: 25px;}
+    .text-link {font-family: "letter-gothic-std"; font-weight: 700; color: #499384; text-decoration: none; border-bottom: 1px solid #cdcdcd; padding-bottom: 2px; -webkit-transition: border-color .3s ease-in-out; transition: border-color .3s ease-in-out; }
+    .text-link:hover, .text-link:active {border-bottom: 1px solid #499384; padding-bottom: 2px; text-decoration: none; }
+}
+#posts-row {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    .upcoming-travel { background: #272727; position: relative; overflow: hidden; margin-bottom: 100px;}
+    .upcoming-travel:before { content: ''; display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.2; background-size: cover; background-position: 50% 50%;}
+    article {margin-bottom: 100px;}
+    .entry-header .entry-title a {font-family: "ff-tisa-web-pro"; color: #272727; }
+    .entry-header .entry-title a:hover {opacity: 0.8;}
+    .entry-footer .entry-meta span a {font-family: "letter-gothic-std"; color: #499384;}
+    .entry-footer .entry-meta span a:hover {opacity: 0.8;}
+    .entry-image {width: 350px; overflow: hidden; position: relative; background-color: #272727;}
+    .entry-image a {display: block;}
+    .size-posts-thumb {width: 100%; height: 100%; transition: all .3s ease-in-out; }
+    .size-posts-thumb:hover {transform: scale(1.03); opacity: 0.8; }
+}
+.reset {
+    width: 100%;
+    display: block;
+    clear: both;
+}
+.upcoming-travel {
+    header { margin-top: 30px; margin-bottom: 40px; text-align: center; position: relative;}
+    header #calendar {color: #fff; position: absolute; top: -16px; left: 12px;}
+    header h3 { color: #fff; background-color: #499384; display: inline-block; margin: 0; padding: 5px 10px 5px 60px;}
+    ul, li, p, a { list-style: none; font-family: "letter-gothic-std"; font-weight: 700; letter-spacing: 1px; font-size: 16px; margin: 0;}
+    .itinerary { margin: 25px 0; position: relative; padding: 0 30px;}
+    .place {color: #499384;}
+    p {color: #fff;}
+}
+.category-link {
+    text-align: center;
+    a {background: transparent; border: 1px solid #499384; color: #499384; font-family: "letter-gothic-std"; padding: 5px 20px; font-size: 16px; transition: all .3s ease-in-out; border-radius: 0; margin: 0 20px;}
+    a:hover {background: #499384; color: #fff;}
+}
+.instagram {
+    margin-top: 100px;
+    > a {text-align: center; margin: 20px 0; display: block;}
+    .insta-link {padding: 0; background-color: #272727; background-position: 50% 50%; background-repeat: no-repeat; background-size: cover; }
+    .insta-link:hover img {opacity: 0.8; transition: opacity .3s ease-in-out;}
+    .insta-link:hover .likes {visibility: visible; opacity: 1;}
+    .insta-image {object-fit: cover; object-position: 50% 50%; display: block; max-width: 100%;}
+    .likes {position: absolute; top: 50%; margin-top: -8px; left: 0; right: 0; font-size: 16px; color: #fff; text-align: center; visibility: hidden; opacity: 0; font-family: "letter-gothic-std"; line-height: 1em; transition: visibility .3s ease-in-out, opacity .3s ease-in-out;}
+    .likes i {padding-right: 10px; font-size: 16px;}
+}
+
+// option 1
+//.instagram {
+//    margin-top: 100px;
+//    > a {text-align: center; margin: 20px 0; display: block;}
+//    #single {padding: 0; background-color: #272727; background-position: 50% 50%; background-repeat: no-repeat; background-size: cover; }
+//    #single:hover img {opacity: 0.8; transition: opacity .3s ease-in-out;}
+//    #single:hover .likes {visibility: visible; opacity: 1;}
+//    .likes {position: absolute; top: 50%; margin-top: -8px; left: 0; right: 0; font-size: 16px; color: #fff; text-align: center; visibility: hidden; opacity: 0; font-family: "letter-gothic-std"; line-height: 1em; transition: visibility .3s ease-in-out, opacity .3s ease-in-out;}
+//    .likes i {padding-right: 10px; font-size: 16px;}
+//}
+
+// option 2
+//.instagram {
+//    margin-top: 100px;
+//    > a {text-align: center; margin: 20px 0; display: block;}
+//    .single {padding: 0; background-color: #272727; background-position: 50% 50%; background-repeat: no-repeat; background-size: cover; height: 250px; }
+//    .test:hover .single {opacity: 0.8; transition: opacity .3s ease-in-out;}
+//    .test:hover .likes {visibility: visible; opacity: 1;}
+//    .likes {position: absolute; top: 50%; margin-top: -8px; left: 0; right: 0; font-size: 16px; color: #fff; text-align: center; visibility: hidden; opacity: 0; font-family: "letter-gothic-std"; line-height: 1em; transition: visibility .3s ease-in-out, opacity .3s ease-in-out;}
+//    .likes i {padding-right: 10px; font-size: 16px;}
+//}
+
+.site-footer {
+    background: #272727;
+    .site-links, .site-follow, aside {margin: 25px 0 50px; }
+    h4 {font-family: "letter-gothic-std"; color: #545454; border-top: 2px solid #5a5a5a; padding-top: 20px; text-transform: uppercase;}
+    ul {padding: 0;}
+    li {list-style: none;}
+    a {font-family: "letter-gothic-std"; color: #499384; transition: opacity .3s ease-in-out;}
+    a:hover {opacity: 0.8; }
+    .signup-form input {display: inline-block; background: transparent; border: none; font-family: "open-sans"; color: #cdcdcd; border-bottom: 1px solid #cdcdcd; outline: none; font-size: 16px; width: 50%; margin-right: 20px; padding: 5px 0;}
+    .signup-form input::-webkit-input-placeholder, .signup-form input::-moz-placeholder, .signup-form input:-ms-input-placeholder {color: #cdcdcd; }
+    .signup-form button {display: inline-block; background: transparent; border: 1px solid #499384; color: #499384; font-family: "letter-gothic-std"; padding: 5px 20px; font-size: 16px; transition: all .3s ease-in-out;}
+    .signup-form button:hover {background: #499384; color: #fff;}
+}
+/* Page.php ---------*/
+.single-page header .featured-post {height: 200px;}
